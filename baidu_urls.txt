@@ -1,1 +1,1 @@
-http://example.com/2022/08/11/book-note/machine-learning/mml/MML-02/
+http://example.com/2022/08/12/curriculum/deep-learning-in-computer-vision/p2lecture5/
