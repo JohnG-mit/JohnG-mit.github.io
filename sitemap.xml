@@ -99,13 +99,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Mathematics/</loc>
-    <lastmod>2022-08-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/Deep-Learning/</loc>
     <lastmod>2022-08-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -114,6 +107,13 @@
   
   <url>
     <loc>http://example.com/tags/Computer-Vision/</loc>
+    <lastmod>2022-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Mathematics/</loc>
     <lastmod>2022-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -129,14 +129,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://example.com/categories/%E8%AF%BE%E7%A8%8B/</loc>
     <lastmod>2022-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E8%AF%BE%E7%A8%8B/</loc>
+    <loc>http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -150,14 +150,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>http://example.com/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/</loc>
     <lastmod>2022-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://example.com/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/</loc>
+    <loc>http://example.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
