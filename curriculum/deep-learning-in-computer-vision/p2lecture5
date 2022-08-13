@@ -17,24 +17,24 @@
   <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
-<link rel="alternate" type="application/rss+xml" title="身如蘆葦" href="http://example.com/rss.xml" />
-<link rel="alternate" type="application/atom+xml" title="身如蘆葦" href="http://example.com/atom.xml" />
-<link rel="alternate" type="application/json" title="身如蘆葦" href="http://example.com/feed.json" />
+<link rel="alternate" type="application/rss+xml" title="身如蘆葦" href="https://www.johng-mit.cn/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="身如蘆葦" href="https://www.johng-mit.cn/atom.xml" />
+<link rel="alternate" type="application/json" title="身如蘆葦" href="https://www.johng-mit.cn/feed.json" />
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="CS,AI" />
+  <meta name="keywords" content="Machine Learning,Deep Learning,Computer Vision" />
 
 
-<link rel="canonical" href="http://example.com/2022/04/04/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5/">
+<link rel="canonical" href="https://www.johng-mit.cn/curriculum/deep-learning-in-computer-vision/p2lecture5">
 
 
 
   <title>
-近况 2022年春 - 近况 - 迷惘集 |
+Part Ⅱ | Lecture 5 | Neural vision advanced applications - Deep Learning in Computer Vision - 课程 |
 Feast = 身如蘆葦 = 人間似夢</title>
 <meta name="generator" content="Hexo 6.2.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -62,23 +62,23 @@ Feast = 身如蘆葦 = 人間似夢</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">近况 2022年春
+  <h1 itemprop="name headline">Part Ⅱ | Lecture 5 | Neural vision advanced applications
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2022-04-04 00:00:00">
+  <span class="item" title="创建时间：2022-08-12 09:17:47">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2022-04-04T00:00:00+08:00">2022-04-04</time>
+    <time itemprop="dateCreated datePublished" datetime="2022-08-12T09:17:47+08:00">2022-08-12</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>993</span>
+    <span>180</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Feast = 身如蘆葦 = 人間似夢</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipewr8iypj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciundwu5j20zk0m8n9e.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
         </ul>
       </div>
     </header>
@@ -150,15 +150,15 @@ Feast = 身如蘆葦 = 人間似夢</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
-<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E8%BF%B7%E6%83%98%E9%9B%86/" itemprop="item" rel="index" title="分类于 迷惘集"><span itemprop="name">迷惘集</span></a>
+<span  itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E8%AF%BE%E7%A8%8B/" itemprop="item" rel="index" title="分类于 课程"><span itemprop="name">课程</span></a>
 <meta itemprop="position" content="1" /></span>
 <i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5/" itemprop="item" rel="index" title="分类于 近况"><span itemprop="name">近况</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/" itemprop="item" rel="index" title="分类于 Deep Learning in Computer Vision"><span itemprop="name">Deep Learning in Computer Vision</span></a>
 <meta itemprop="position" content="2" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/04/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5/">
+  <link itemprop="mainEntityOfPage" href="https://www.johng-mit.cn/curriculum/deep-learning-in-computer-vision/p2lecture5">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -173,24 +173,21 @@ Feast = 身如蘆葦 = 人間似夢</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>  <br>
-忙里偷闲，<s>写点东西</s>（记流水账、伤春悲秋）。</p>
-<h2 id="梦想要大"><a class="markdownIt-Anchor" href="#梦想要大">#</a> 梦想要大</h2>
-<p>  <br>
-小时候不懂事，往往张口闭口就要成为各种 “家”。对于我这种 00 后来说，在那个懵懂无知的年代，或许耳熟能详的还要属钱学森、华罗庚、杨利伟等一众古典名人了。从他们生动传奇的事迹中，我可以感受到长辈、师长对他们的崇拜，羡慕他们有能力为国家、为科学做出巨大的贡献。“Dream-big” 在那段时光是一件多么轻易的事情，可以尽情地幻想，充满热切的期待，每天都处于一种简单纯粹的正向激励中。“少年心事当拿云”，确实是不错的。</p>
-<h2 id="长大以后"><a class="markdownIt-Anchor" href="#长大以后">#</a> 长大以后</h2>
-<p>  <br>
-现实永远是最为真实的。高二课堂上，语文老师就提到过 “精致的利己主义者”。言犹在耳，然而听时的心境却千差万别。曾经内心涌动着的激昂的情感黯淡了、消失了。什么是情怀？每到这时，我就会想起曾经的中国人民解放军，想起江姐，想起刘胡兰…… 未经受过，就永远无法理解。</p>
-<h2 id="近况"><a class="markdownIt-Anchor" href="#近况">#</a> 近况</h2>
-<h3 id="退出合唱团"><a class="markdownIt-Anchor" href="#退出合唱团">#</a> 退出合唱团</h3>
-<p>  <br>
-终于写到近况了。如果让高中老师来批改，一定会打一个大大的偏题：(. 最近真的发生了很多事情。最大的一件可能就是退出合唱团了吧…… 从去年开始就萌生这个念头了，尽管在合唱团接触到了很多优秀的学长学姐，唱了很多很美的作品，但是每周长达 7h 的排练时长确实是一种煎熬，没有大一初进时的那种新奇与期待感了。和舍友谈起这件事情，我觉得他讲得很好，也许是不够热爱，所以才没有坚持。我真的很羡慕团里能平衡各种事情并且仍然取得很好成就的学长学姐，可能高效和专注是唯一的解决办法吧…… 从前我还习惯熬夜，但越来越觉得效率低下并且是自讨苦吃，白天无精打采而且特别容易抑郁。压缩睡眠时间应该是最愚蠢的做法（跑操这个设定就极其不合理，尽管现在暂时没有）。现在每天睡眠时间算下来大概 7h，可以说十分充足了，但是感觉白天的效率还是有点低，有待提高。</p>
-<h3 id="研究生复试"><a class="markdownIt-Anchor" href="#研究生复试">#</a> 研究生复试</h3>
-<p>  <br>
-研究生复试成绩陆陆续续都出来了，听舍友说路上遇到一个学长放弃了本校保研资格去考上交，结果复试被刷了，准备回去再战一年。短短几句话囊括了一年的努力、期待和最终的失望。今年考研人数已经达到 457 万，报录比提升到 4:1，甚至还听说有<span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3F1ZXN0aW9uLzUyMTMzOTcxMy9hbnN3ZXIvMjM4ODU4NTI4NQ==">南大物理系压分导致无法调剂的事情</span>，形势已经十分严峻了，这让我想到了当年的高考，我永远不想再经历一次，我只希望能安安心心地多学点技术，但从目前的成绩来看保研实在堪忧：(</p>
-<h3 id="其他"><a class="markdownIt-Anchor" href="#其他">#</a> 其他</h3>
-<p>最近真忙啊，还有好多事压在心里没做，目前正在处理的感觉大多是杂事，很希望能有完整的自己的时间用来研究课程和学习新东西……</p>
+    <h1 id="lecture-outline"><a class="markdownIt-Anchor" href="#lecture-outline">#</a> Lecture Outline</h1>
+<ul>
+<li>Multi-object detection (YOLO, FasterRCNN)</li>
+<li>Region proposal networks and tracking</li>
+<li>Semantic and instance segmentation</li>
+<li>Self-supervised depth estimation</li>
+<li>Autonomous control and robotics</li>
+</ul>
+<h1 id="note"><a class="markdownIt-Anchor" href="#note">#</a> Note</h1>
 
+      <div class="tags">
+          <a href="/tags/Machine-Learning/" rel="tag"><i class="ic i-tag"></i> Machine Learning</a>
+          <a href="/tags/Deep-Learning/" rel="tag"><i class="ic i-tag"></i> Deep Learning</a>
+          <a href="/tags/Computer-Vision/" rel="tag"><i class="ic i-tag"></i> Computer Vision</a>
+      </div>
   </div>
 
    <footer>
@@ -201,9 +198,9 @@ Feast = 身如蘆葦 = 人間似夢</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-08-11 19:21:04" itemprop="dateModified" datetime="2022-08-11T19:21:04+08:00">2022-08-11</time>
+    <time title="修改时间：2022-08-12 10:55:00" itemprop="dateModified" datetime="2022-08-12T10:55:00+08:00">2022-08-12</time>
   </span>
-  <span id="2022/04/04/迷惘集/近况-2022年春/" class="item leancloud_visitors" data-flag-title="近况 2022年春" title="阅读次数">
+  <span id="curriculum/deep-learning-in-computer-vision/p2lecture5" class="item leancloud_visitors" data-flag-title="Part Ⅱ | Lecture 5 | Neural vision advanced applications" title="阅读次数">
       <span class="icon">
         <i class="ic i-eye"></i>
       </span>
@@ -241,7 +238,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2022/04/04/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5/" title="近况 2022年春">http://example.com/2022/04/04/迷惘集/近况-2022年春/</a>
+    <a href="https://www.johng-mit.cn/curriculum/deep-learning-in-computer-vision/p2lecture5" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">https://www.johng-mit.cn/curriculum/deep-learning-in-computer-vision/p2lecture5</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -258,16 +255,16 @@ Feast = 身如蘆葦 = 人間似夢</title>
 
 <div class="post-nav">
     <div class="item left">
-    </div>
-    <div class="item right">
       
 
-  <a href="/2022/08/11/book-note/machine-learning/mml/MML-01/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew8gmvyj20zk0m87wh.jpg" title="Mathematics for Machine Learning | Chapter 1">
-  <span class="type">下一篇</span>
+  <a href="/book-note/machine-learning/mml/MML-01" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetlbztpj20zk0m84qp.jpg" title="Mathematics for Machine Learning | Chapter 1">
+  <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Mathematics for Machine Learning</span>
   <h3>Mathematics for Machine Learning | Chapter 1</h3>
   </a>
 
+    </div>
+    <div class="item right">
     </div>
 </div>
 
@@ -284,11 +281,11 @@ Feast = 身如蘆葦 = 人間似夢</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%A6%E6%83%B3%E8%A6%81%E5%A4%A7"><span class="toc-number">1.</span> <span class="toc-text"> 梦想要大</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%BF%E5%A4%A7%E4%BB%A5%E5%90%8E"><span class="toc-number">2.</span> <span class="toc-text"> 长大以后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%91%E5%86%B5"><span class="toc-number">3.</span> <span class="toc-text"> 近况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%80%E5%87%BA%E5%90%88%E5%94%B1%E5%9B%A2"><span class="toc-number">3.1.</span> <span class="toc-text"> 退出合唱团</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E7%94%9F%E5%A4%8D%E8%AF%95"><span class="toc-number">3.2.</span> <span class="toc-text"> 研究生复试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">3.3.</span> <span class="toc-text"> 其他</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#lecture-outline"><span class="toc-number">1.</span> <span class="toc-text"> Lecture Outline</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#note"><span class="toc-number">2.</span> <span class="toc-text"> Note</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li class="active"><a href="/2022/04/04/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5/" rel="bookmark" title="近况 2022年春">近况 2022年春</a></li>
+          <li class="active"><a href="/curriculum/deep-learning-in-computer-vision/p2lecture5" rel="bookmark" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">Part Ⅱ | Lecture 5 | Neural vision advanced applications</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -395,19 +392,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
 <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/" title="分类于 Mathematics for Machine Learning">Mathematics for Machine Learning</a>
 </div>
 
-    <span><a href="/2022/08/11/book-note/machine-learning/mml/MML-01/" title="Mathematics for Machine Learning | Chapter 1">Mathematics for Machine Learning | Chapter 1</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/" title="分类于 Deep Learning in Computer Vision">Deep Learning in Computer Vision</a>
-</div>
-
-    <span><a href="/2022/08/12/curriculum/deep-learning-in-computer-vision/p2lecture5/" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">Part Ⅱ | Lecture 5 | Neural vision advanced applications</a></span>
+    <span><a href="/book-note/machine-learning/mml/MML-02" title="Mathematics for Machine Learning | Chapter 2">Mathematics for Machine Learning | Chapter 2</a></span>
   </li>
 
       
@@ -421,7 +406,19 @@ Feast = 身如蘆葦 = 人間似夢</title>
 <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/" title="分类于 Mathematics for Machine Learning">Mathematics for Machine Learning</a>
 </div>
 
-    <span><a href="/2022/08/11/book-note/machine-learning/mml/MML-02/" title="Mathematics for Machine Learning | Chapter 2">Mathematics for Machine Learning | Chapter 2</a></span>
+    <span><a href="/book-note/machine-learning/mml/MML-01" title="Mathematics for Machine Learning | Chapter 1">Mathematics for Machine Learning | Chapter 1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/" title="分类于 Deep Learning in Computer Vision">Deep Learning in Computer Vision</a>
+</div>
+
+    <span><a href="/curriculum/deep-learning-in-computer-vision/p2lecture5" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">Part Ⅱ | Lecture 5 | Neural vision advanced applications</a></span>
   </li>
 
       
@@ -433,7 +430,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
 <a href="/categories/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5/" title="分类于 近况">近况</a>
 </div>
 
-    <span><a href="/2022/04/04/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5/" title="近况 2022年春">近况 2022年春</a></span>
+    <span><a href="/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5" title="近况 2022年春">近况 2022年春</a></span>
   </li>
 
   </ul>
@@ -481,17 +478,18 @@ Feast = 身如蘆葦 = 人間似夢</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2022/04/04/迷惘集/近况-2022年春/',
+    path: 'curriculum/deep-learning-in-computer-vision/p2lecture5',
     favicon: {
-      show: "（●´3｀●）復活成功",
-      hide: "(´Д｀)瀏覽器崩潰啦"
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
     },
     search : {
       placeholder: "文章搜索",
       empty: "关于 「 ${query} 」，什么也没搜到",
       stats: "${time} ms 内找到 ${hits} 条结果"
     },
-    valine: true,fancybox: true,
+    valine: true,copy_tex: true,
+    katex: true,fancybox: true,
     copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
     ignores : [
       function(uri) {
