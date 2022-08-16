@@ -119,12 +119,12 @@ Feast = 身如蘆葦 = 人間似夢</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicitspjpbj20zk0m81ky.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclxfdlttj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitf0kl1j20zk0m87fe.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeuv80yoj20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciundwu5j20zk0m8n9e.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
         </ul>
       </div>
     </header>
@@ -212,7 +212,8 @@ Feast = 身如蘆葦 = 人間似夢</title>
 
    <footer>
 
-    <div class="meta">
+    
+<div class="meta">
   <span class="item">
     <span class="icon">
       <i class="ic i-calendar-check"></i>
@@ -221,28 +222,24 @@ Feast = 身如蘆葦 = 人間似夢</title>
     <time title="修改时间：2022-08-12 09:15:43" itemprop="dateModified" datetime="2022-08-12T09:15:43+08:00">2022-08-12</time>
   </span>
 
-  <span class="comment">
-    <script src="https://giscus.app/client.js"
-        data-repo="JohnG-mit/JohnG-mit.github.io"
-        data-repo-id="R_kgDOHzXgWA"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOHzXgWM4CQwuK"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-    </script>
-  </span>
-  
-
 </div>
 
+      <script src="https://giscus.app/client.js"
+      data-repo="JohnG-mit/JohnG-mit.github.io"
+      data-repo-id="R_kgDOHzXgWA"
+      data-category="Announcements"
+      data-category-id="DIC_kwDOHzXgWM4CQwuK"
+      data-mapping="title"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="preferred_color_scheme"
+      data-lang="zh-CN"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async>
+  </script>
       
 <div class="reward">
   <button><i class="ic i-heartbeat"></i> 赞赏</button>
@@ -289,7 +286,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
     <div class="item left">
       
 
-  <a href="/book-note/machine-learning/mml/MML-02" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetlbztpj20zk0m84qp.jpg" title="Mathematics for Machine Learning | Chapter 2">
+  <a href="/book-note/machine-learning/mml/MML-02" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciuja1j1j20zk0m8kjl.jpg" title="Mathematics for Machine Learning | Chapter 2">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Mathematics for Machine Learning</span>
   <h3>Mathematics for Machine Learning | Chapter 2</h3>
@@ -299,7 +296,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
     <div class="item right">
       
 
-  <a href="/curriculum/deep-learning-in-computer-vision/p2lecture5" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevo9j1jj20zk0m8e81.jpg" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">
+  <a href="/curriculum/deep-learning-in-computer-vision/p2lecture5" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu1usa7j20zk0m8b29.jpg" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> Deep Learning in Computer Vision</span>
   <h3>Part Ⅱ | Lecture 5 | Neural vision advanced applications</h3>
@@ -545,7 +542,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
 
 <script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
 
-<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4.4.0/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
 <script src="/js/app.js?v=0.2.5"></script>
 
