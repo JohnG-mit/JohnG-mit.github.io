@@ -78,7 +78,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>3.4k</span>
+    <span>3.3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -119,12 +119,12 @@ Feast = 身如蘆葦 = 人間似夢</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0n457cj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevgoki5j20zk0m84qp.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclil3m4ej20zk0m8tn8.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciszlczyj20zk0m816d.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclga70tsj20zk0m84mr.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -174,7 +174,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
     
 
     <h2 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面">#</a> 写在前面</h2>
-<p>作为一名程序猿，💻外带是刚需。然而，由于游戏本过于笨重，并且续航能力被轻薄本和 Mac 薄纱🙃，因此严重阻碍了我试图迈出宿舍大门的脚步。所以为了解放饱受苦痛的肉体，我开始探索使用 iPad 远程控制电脑的方法…… 以下文章主要是关于 RD Client + frp 内网穿透（使用自建服务器）的过程，如果只使用校园网且 Windows 为专业版或企业版，可以直接忽略内网穿透相关内容，直接跳转到文末查看 RD Client 在 iPad 上如何配置。</p>
+<p>作为一名程序猿，💻外带是刚需。然而，由于游戏本过于笨重，并且续航能力被轻薄本和 Mac 薄纱🙃，因此严重阻碍了我试图迈出宿舍大门的脚步。所以为了解放饱受苦痛的肉体，我开始探索使用 iPad 远程控制电脑的方法…… 以下文章主要是关于 RD Client + frp 内网穿透（使用自建服务器）的过程，如果只使用校园网且 Windows 为专业版或企业版，可以直接忽略内网穿透相关内容，跳转到文末查看 RD Client 在 iPad 上如何配置。</p>
 <h3 id="常用远程桌面控制软件对比"><a class="markdownIt-Anchor" href="#常用远程桌面控制软件对比">#</a> 常用远程桌面控制软件对比</h3>
 <ul>
 <li><span class="exturl" data-url="aHR0cHM6Ly9zdW5sb2dpbi5vcmF5LmNvbS8=">向日葵</span>：用过一段时间，体验极其糟糕。首先要吐槽的就是它的鼠标单键映射。鼠标滚轮和右键全都不起作用，拖动和右击被映射到鼠标左键的两档长按，这是什么反人类的设计😅…… 此外远程桌面无法自适应 iPad 屏幕，如果想完整看到桌面，在 iPad 横向放置的情况下屏幕上部和下部都有大面积黑边，这直接导致文字过小，阅读吃力，很容易加深近视度数。</li>
@@ -211,24 +211,13 @@ Feast = 身如蘆葦 = 人間似夢</title>
 <h4 id="ini文件配置及frps运行"><a class="markdownIt-Anchor" href="#ini文件配置及frps运行">#</a> ini 文件配置及 frps 运行</h4>
 <p>按 <code>win + I</code>  打开系统设置，依次点击系统 -&gt; 远程桌面并开启。Windows 默认的远程桌面端口为 3389，我们不做修改。将下载得到的压缩包解压放在合适的路径，我个人选择 <code>C:\Program Files\frp_0.44.0_windows_amd64</code> 。打开文件夹编辑 <code>frpc.ini</code> ，设置如下：</p>
 <figure class="highlight ini"><figcaption data-lang="ini"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">common</span><span class="token punctuation">]</span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token key attr-name">server_addr</span> <span class="token punctuation">=</span> <span class="token value attr-value">&lt;中转服务器公网IP地址></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token key attr-name">server_port</span> <span class="token punctuation">=</span> <span class="token value attr-value">7000 # 用于和中转服务器连接的端口，与服务器bind_port参数一致，如有端口冲突需要自行更换</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token key attr-name">authentication_method</span> <span class="token punctuation">=</span> <span class="token value attr-value">token # [可选] 为了增加安全性所作的设置</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token key attr-name">token</span> <span class="token punctuation">=</span> <span class="token value attr-value">&lt;密钥> # [可选] 为了增加安全性所作的设置，可以填写任意字符</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">RDP</span><span class="token punctuation">]</span></span> # 名字可以随便起，如果有不同客户端需求注意不能重复</pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token key attr-name">type</span> <span class="token punctuation">=</span> <span class="token value attr-value">tcp</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token key attr-name">local_ip</span> <span class="token punctuation">=</span> <span class="token value attr-value">127.0.0.1 # 本地ip</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token key attr-name">local_port</span> <span class="token punctuation">=</span> <span class="token value attr-value">3389 # Windows本地远程桌面连接端口，默认值为3389</span></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token key attr-name">remote_port</span> <span class="token punctuation">=</span> <span class="token value attr-value">3389 # 中转服务器远程桌面连接端口</span></pre></td></tr></table></figure><p>打开 cmd，运行 <code>frpc.exe</code> ：</p>
-<pre><code class="language-bat">frpc.exe -c frpc.ini
-</code></pre>
-<p>注意这样直接运行须保持 cmd 窗口开启，若想要后台运行，可以使用下方提供的 <code>bat</code>  脚本。</p>
+<figure class="highlight batch"><figcaption data-lang="batch"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token command"><span class="token keyword">frpc</span>.exe <span class="token parameter attr-name">-c</span> frpc.ini</span></pre></td></tr></table></figure><p>注意这样直接运行须保持 cmd 窗口开启，若想要后台运行，可以使用下方提供的 <code>bat</code>  脚本。</p>
 <div class="note warning">
 <p>注意在 Linux 中运行的是 <code>frps -c frps.ini</code> ，而在 Windows 系统下运行的是 <code>frpc.exe -c frpc.ini</code> 。</p>
 </div>
 <h4 id="开机自启配置"><a class="markdownIt-Anchor" href="#开机自启配置">#</a> 开机自启配置</h4>
 <p>创建 <code>run.bat</code>  文件，粘贴如下内容：</p>
-<pre><code class="language-bat">@echo off
-if &quot;%1&quot; == &quot;h&quot; goto begin
-mshta vbscript:createobject(&quot;wscript.shell&quot;).run(&quot;&quot;&quot;%~nx0&quot;&quot; h&quot;,0)(window.close)&amp;&amp;exit
-:begin
-REM
-cd C:\Program Files\frp_0.44.0_windows_amd64
-frpc.exe -c frpc.ini
-exit
-</code></pre>
-<p>按下 <code>win + r</code>  打开运行窗口，输入 <code>shell:startup</code> ，将 bat 文件复制到打开的位置内，则该脚本会在开机后自动运行。这个脚本会在后台启动 <code>frqc.exe</code>  进程而无需保持命令行打开。在任务管理器的详细信息中应当可以看到 <code>frps.exe</code>  进程运行。</p>
+<figure class="highlight batch"><figcaption data-lang="batch"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token operator">@</span><span class="token command"><span class="token keyword">echo</span> off</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token command"><span class="token keyword">if</span> <span class="token string">"%1"</span> == <span class="token string">"h"</span> goto begin</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token command"><span class="token keyword">mshta</span> vbscript:createobject(<span class="token string">"wscript.shell"</span></span><span class="token punctuation">)</span>.run<span class="token punctuation">(</span>"""%~nx0"" h",0<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token command"><span class="token keyword">window</span>.close</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token operator">&amp;</span><span class="token command"><span class="token keyword">exit</span></span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token label property">:begin</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">REM</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token command"><span class="token keyword">cd</span> C:\Program Files\frp_0.<span class="token number">44</span>.0_windows_amd64</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token command"><span class="token keyword">frpc</span>.exe <span class="token parameter attr-name">-c</span> frpc.ini</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token command"><span class="token keyword">exit</span></span></pre></td></tr></table></figure><p>按下 <code>win + r</code>  打开运行窗口，输入 <code>shell:startup</code> ，将 bat 文件复制到打开的位置内，<s>则该脚本会在开机后自动运行</s>（目前看来好像有 bug，开机后需要手动启动一次，可以创建一个快捷方式放在桌面）。这个脚本会在后台启动 <code>frqc.exe</code>  进程而无需保持命令行打开。在任务管理器的详细信息中应当可以看到 <code>frpc.exe</code>  进程运行。</p>
 <h2 id="ipad端rd-client配置"><a class="markdownIt-Anchor" href="#ipad端rd-client配置">#</a> iPad 端 RD Client 配置</h2>
 <p>进入 APP Store 搜索下载 RD Client。打开后点击左上角加号添加电脑。</p>
 <p>如果只使用内网连接（仅使用校园网），只需要在电脑名称一栏填写 Windows 电脑的 IP 地址（可在 cmd 中输入 ipconfig 查看网络的 ipv4 地址），用户账户一栏填写 Windows 系统账户名称和锁屏密码（可以在 <code>win + i</code>  设置 -&gt; 账户中查看）。</p>
@@ -251,7 +240,7 @@ exit
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-09-21 00:39:48" itemprop="dateModified" datetime="2022-09-21T00:39:48+08:00">2022-09-21</time>
+    <time title="修改时间：2022-09-21 08:47:36" itemprop="dateModified" datetime="2022-09-21T08:47:36+08:00">2022-09-21</time>
   </span>
   <span id="technology/rdp/" class="item leancloud_visitors" data-flag-title="使用RD Client + frp内网穿透实现iPad远程控制" title="阅读次数">
       <span class="icon">
@@ -310,7 +299,7 @@ exit
     <div class="item left">
       
 
-  <a href="/curriculum/deep-learning-in-computer-vision/p2lecture5/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclh0m9pdj20zk0m8hdt.jpg" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">
+  <a href="/curriculum/deep-learning-in-computer-vision/p2lecture5/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicmnywqgpj20zk0m8dwx.jpg" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> Deep Learning in Computer Vision</span>
   <h3>Part Ⅱ | Lecture 5 | Neural vision advanced applications</h3>
@@ -445,31 +434,7 @@ exit
 <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/" title="分类于 Mathematics for Machine Learning">Mathematics for Machine Learning</a>
 </div>
 
-    <span><a href="/book-note/machine-learning/mml/MML-01/" title="Mathematics for Machine Learning | Chapter 1">Mathematics for Machine Learning | Chapter 1</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%BF%B7%E6%83%98%E9%9B%86/" title="分类于 迷惘集">迷惘集</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5/" title="分类于 近况">近况</a>
-</div>
-
-    <span><a href="/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5/" title="近况 2022年春">近况 2022年春</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/" title="分类于 Deep Learning in Computer Vision">Deep Learning in Computer Vision</a>
-</div>
-
-    <span><a href="/curriculum/deep-learning-in-computer-vision/p2lecture5/" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">Part Ⅱ | Lecture 5 | Neural vision advanced applications</a></span>
+    <span><a href="/book-note/machine-learning/mml/MML-02/" title="Mathematics for Machine Learning | Chapter 2">Mathematics for Machine Learning | Chapter 2</a></span>
   </li>
 
       
@@ -495,7 +460,31 @@ exit
 <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/" title="分类于 Mathematics for Machine Learning">Mathematics for Machine Learning</a>
 </div>
 
-    <span><a href="/book-note/machine-learning/mml/MML-02/" title="Mathematics for Machine Learning | Chapter 2">Mathematics for Machine Learning | Chapter 2</a></span>
+    <span><a href="/book-note/machine-learning/mml/MML-01/" title="Mathematics for Machine Learning | Chapter 1">Mathematics for Machine Learning | Chapter 1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%BF%B7%E6%83%98%E9%9B%86/" title="分类于 迷惘集">迷惘集</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5/" title="分类于 近况">近况</a>
+</div>
+
+    <span><a href="/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5/" title="近况 2022年春">近况 2022年春</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/" title="分类于 Deep Learning in Computer Vision">Deep Learning in Computer Vision</a>
+</div>
+
+    <span><a href="/curriculum/deep-learning-in-computer-vision/p2lecture5/" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">Part Ⅱ | Lecture 5 | Neural vision advanced applications</a></span>
   </li>
 
   </ul>
