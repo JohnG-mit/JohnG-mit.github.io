@@ -120,12 +120,12 @@ Feast = 身如蘆葦 = 人間似夢</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/orfeas-green-G5A5ZNjS2tE-unsplash.jpg"></li>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/steve-johnson-len7pocrCZU-unsplash.jpg"></li>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/birmingham-museums-trust-SAQl58G-RYs-unsplash.jpg"></li>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/evie-s-5y3_NMBTpTM-unsplash.jpg"></li>
           <li class="item" data-background-image="https://johng-mit.cn/wallpaper/europeana-5TK1F5VfdIk-unsplash.jpg"></li>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/kelly-sikkema--fYJTwYqNxk-unsplash.jpg"></li>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/nasa-fDSqEWLRNFE-unsplash.jpg"></li>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/birmingham-museums-trust-9dnNnTrHxmI-unsplash.jpg"></li>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/jr-korpa-zCuSa67rLEM-unsplash.jpg"></li>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/nico-frey-JfknhSgANFQ-unsplash.jpg"></li>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/mark-hang-fung-so-H8zTd5cqxqE-unsplash.jpg"></li>
         </ul>
       </div>
     </header>
@@ -182,29 +182,29 @@ Feast = 身如蘆葦 = 人間似夢</title>
 </ul>
 <p>CPU 也可以通过堆核心达到和 GPU 相似的性能，但是这样做会导致芯片过大不经济；如果将过多核心分散在不同机器上，通信将会成为主要的开销。CPU 的访存是经过硬件电路优化的。但是 GPU 的访存更多需要程序员的干预与优化。GPU 实际上是在用并行去掩盖访存延迟。</p>
 <h2 id="cuda-interface"><a class="markdownIt-Anchor" href="#cuda-interface">#</a> CUDA Interface</h2>
-<p><img data-src="image/PKU-HPCGAME-2/1673666343766.png" alt="1673666343766"><br>
-CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个 thread Grid。每个 Grid 中含有多个编号 block，编号可以是一维可以是二维或其他维。每个 block 中含有若干个 thread，每个 thread 也都有对应的编号并可以修改成不同维度。追求极致的话 thread Index 一般可以设置成二维。 <code>threadIdx.x</code>  范围就是 [0-blockDim.x]。一个 block 中含多少个 thread 就是 <code>blockDim.x</code> ，一个 Grid 中含多少 block 就是 <code>gridDim.x</code> 。一个 kernel 的总 thread 数就是 <code>gridDim.x * blockDim.x</code> 。<br>
-<img data-src="image/PKU-HPCGAME-2/1673667019421.png" alt="1673667019421"><br>
- 所有 block 都是并行执行的，很难控制它们执行的顺序。一个 block 中的所有 thread 也都是并行执行的。在 CUDA 中将一个 block 中的所有 thread 进行同步是一个比较常见的操作。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673666343766.png" class="" width="1673666343766">
+<p>CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个 thread Grid。每个 Grid 中含有多个编号 block，编号可以是一维可以是二维或其他维。每个 block 中含有若干个 thread，每个 thread 也都有对应的编号并可以修改成不同维度。追求极致的话 thread Index 一般可以设置成二维。 <code>threadIdx.x</code>  范围就是 [0-blockDim.x]。一个 block 中含多少个 thread 就是 <code>blockDim.x</code> ，一个 Grid 中含多少 block 就是 <code>gridDim.x</code> 。一个 kernel 的总 thread 数就是 <code>gridDim.x * blockDim.x</code> 。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673667019421.png" class="" width="1673667019421">
+<p>所有 block 都是并行执行的，很难控制它们执行的顺序。一个 block 中的所有 thread 也都是并行执行的。在 CUDA 中将一个 block 中的所有 thread 进行同步是一个比较常见的操作。</p>
 <h2 id="gpu-hardware"><a class="markdownIt-Anchor" href="#gpu-hardware">#</a> GPU Hardware</h2>
 <p>为什么要这样设计？软件的层级设计和 GPU 的硬件设计是有联系的。多个 block 会被 map 到一个 SM (Streaming Multiprocessor) 上。SM 中含有多个 CUDA core，多个 thread 被 map 到 CUDA core 上。以 A100 为例，一个 SM 中含有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16</mn><mo>×</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">16 \times 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">6</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 个执行单元。16 个核跑同一个指令。GPU 一个 SM 可以有几万个寄存器。GPU 做上下文切换速度远快于 CPU。</p>
-<p><img data-src="image/PKU-HPCGAME-2/1673668199624.png" alt="1673668199624"><br>
- <code>if</code>  如果可以写成 <code>c = flag ? a : b</code>  或者 <code>if (...-&gt;true)</code>  的形式都可以很快。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673668199624.png" class="" width="1673668199624">
+<p><code>if</code>  如果可以写成 <code>c = flag ? a : b</code>  或者 <code>if (...-&gt;true)</code>  的形式都可以很快。</p>
 <h3 id="cpu-gpu-interaction"><a class="markdownIt-Anchor" href="#cpu-gpu-interaction">#</a> CPU-GPU Interaction</h3>
-<p><img data-src="image/PKU-HPCGAME-2/1673668565709.png" alt="1673668565709"><br>
- 所有 kernel 启动都需要第一条语句，这条语句不是函数，只是起到一个类似于通知的作用（通知一个 kernel 的 launch）。需要显式地去让 CPU 等待 GPU 执行完成。在 launch 的同时 CPU 也可以调一些函数做自己的运算。等需要处理数据时调用 <code>cudaDeviceSynchronize()</code>  让 CPU 等待 GPU 将 CPU 提交的所有 kernel 执行完成。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673668565709.png" class="" width="1673668565709">
+<p>所有 kernel 启动都需要第一条语句，这条语句不是函数，只是起到一个类似于通知的作用（通知一个 kernel 的 launch）。需要显式地去让 CPU 等待 GPU 执行完成。在 launch 的同时 CPU 也可以调一些函数做自己的运算。等需要处理数据时调用 <code>cudaDeviceSynchronize()</code>  让 CPU 等待 GPU 将 CPU 提交的所有 kernel 执行完成。</p>
 <h3 id="gpu-memory-architecture"><a class="markdownIt-Anchor" href="#gpu-memory-architecture">#</a> GPU Memory Architecture</h3>
-<p><img data-src="image/PKU-HPCGAME-2/1673669054088.png" alt="1673669054088"><br>
- 以 A100 为例，它有 40GB 的显存。显存到 L2 Cache 有 1.55TB/s。A100 中实际上有两个 L2 Cache，分为左 L2 和右 L2。L1 Cache 和 Shared Memory 共用 192KB。SHM 最大 164KB，一般设置为 48KB。</p>
-<p><img data-src="image/PKU-HPCGAME-2/1673669992092.png" alt="1673669992092"><br>
- 内存聚合。想要写出高性能的 GPU Code 要注意代码中的访存模式。上图中第一条代码就要快于第二条代码。一个 block 中有 256 个线程，每次循环从显存中加载 256bit（32bytes，4bytes <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 8）数据，第一条代码中的所有数据都被用到。第二条代码中由于只取了 <code>i * 4</code>  处的元素，加载的效率只有原来的 1/4。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673669054088.png" class="" width="1673669054088">
+<p>以 A100 为例，它有 40GB 的显存。显存到 L2 Cache 有 1.55TB/s。A100 中实际上有两个 L2 Cache，分为左 L2 和右 L2。L1 Cache 和 Shared Memory 共用 192KB。SHM 最大 164KB，一般设置为 48KB。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673669992092.png" class="" width="1673669992092">
+<p>内存聚合。想要写出高性能的 GPU Code 要注意代码中的访存模式。上图中第一条代码就要快于第二条代码。一个 block 中有 256 个线程，每次循环从显存中加载 256bit（32bytes，4bytes <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>×</mo></mrow><annotation encoding="application/x-tex">\times</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">×</span></span></span></span> 8）数据，第一条代码中的所有数据都被用到。第二条代码中由于只取了 <code>i * 4</code>  处的元素，加载的效率只有原来的 1/4。</p>
 <h3 id="banks-and-shared-memory"><a class="markdownIt-Anchor" href="#banks-and-shared-memory">#</a> Banks and Shared Memory</h3>
-<p><img data-src="image/PKU-HPCGAME-2/1673678333034.png" alt="1673678333034"><br>
- 每个 block 控制一个 L1 Cache，一个 block 中的所有 thread 都可以访问到共享内存，搬运数据的流量很大，延迟很低。bank 在一个执行周期只能向一个 thread 喂数据，第三种情况程序的性能会被拖累。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673678333034.png" class="" width="1673678333034">
+<p>每个 block 控制一个 L1 Cache，一个 block 中的所有 thread 都可以访问到共享内存，搬运数据的流量很大，延迟很低。bank 在一个执行周期只能向一个 thread 喂数据，第三种情况程序的性能会被拖累。</p>
 <h2 id="write-correct-and-efficient-gpu-code"><a class="markdownIt-Anchor" href="#write-correct-and-efficient-gpu-code">#</a> Write Correct and Efficient GPU Code</h2>
-<p><img data-src="image/PKU-HPCGAME-2/1673678784864.png" alt="1673678784864"><br>
- 补充：第一条是 CPU-GPU 数据传输；在共享内存中使用原子操作对性能不会有较大影响。</p>
-<p><img data-src="image/PKU-HPCGAME-2/1673679156217.png" alt="1673679156217"></p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673678784864.png" class="" width="1673678784864">
+<p>补充：第一条是 CPU-GPU 数据传输；在共享内存中使用原子操作对性能不会有较大影响。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673679156217.png" class="" width="1673679156217">
 <h3 id="an-example-histogram"><a class="markdownIt-Anchor" href="#an-example-histogram">#</a> An Example: Histogram</h3>
 <h4 id="problem-set"><a class="markdownIt-Anchor" href="#problem-set">#</a> Problem Set</h4>
 <ul>
@@ -230,8 +230,8 @@ CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个
 <figure class="highlight cpp"><figcaption data-lang="C++"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token comment">//naive cuda + shared memory + contiguous unroll: N = 32 * 4, fat kernel， interleave (fixed step, 交错)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>__shared__ <span class="token keyword">unsigned</span> <span class="token keyword">int</span> bins_shared<span class="token punctuation">[</span><span class="token number">256</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">const</span> <span class="token keyword">int</span> N <span class="token operator">=</span> <span class="token number">32</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>__global__ <span class="token keyword">void</span> <span class="token function">histogram_kernel_v4_5</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">char</span> <span class="token operator">*</span>array<span class="token punctuation">,</span> <span class="token keyword">unsigned</span> <span class="token keyword">int</span> <span class="token operator">*</span>bins<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">int</span> i <span class="token operator">=</span> blockIdx<span class="token punctuation">.</span>x <span class="token operator">*</span> blockDim<span class="token punctuation">.</span>x <span class="token operator">+</span> threadIdx<span class="token punctuation">.</span>x<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre></pre></td></tr><tr><td data-num="9"></td><td><pre>    bins_shared<span class="token punctuation">[</span>threadIdx<span class="token punctuation">.</span>x<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// block size assumed to be just 256</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token function">__syncthreads</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//gpu 中所有运行的 thread 同时暂停（我的理解是等待所有 thread 执行完当前指令）</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">int</span> l <span class="token operator">=</span> i <span class="token operator">*</span> N<span class="token punctuation">,</span> r <span class="token operator">=</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> N<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">for</span> <span class="token punctuation">(</span>tid <span class="token operator">=</span> l<span class="token punctuation">;</span> tid <span class="token operator">&lt;</span> r<span class="token punctuation">;</span> <span class="token operator">++</span>tid<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token keyword">unsigned</span> <span class="token keyword">int</span> value_u32 <span class="token operator">=</span> array<span class="token punctuation">[</span>tid<span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token function">atomicAdd</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>bins_shared<span class="token punctuation">[</span>value_u32 <span class="token operator">&amp;</span> <span class="token number">0x000000FF</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1u</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>        <span class="token function">atomicAdd</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>bins_shared<span class="token punctuation">[</span><span class="token punctuation">(</span>value_u32 <span class="token operator">&amp;</span> <span class="token number">0x0000FF00</span><span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1u</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>        <span class="token function">atomicAdd</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>bins_shared<span class="token punctuation">[</span><span class="token punctuation">(</span>value_u32 <span class="token operator">&amp;</span> <span class="token number">0x00FF0000</span><span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">16</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1u</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token function">atomicAdd</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>bins_shared<span class="token punctuation">[</span><span class="token punctuation">(</span>value_u32 <span class="token operator">&amp;</span> <span class="token number">0xFF000000</span><span class="token punctuation">)</span> <span class="token operator">>></span> <span class="token number">24</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">1u</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre>    <span class="token function">__syncthreads</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="22"></td><td><pre></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token function">atomicAdd</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>bins<span class="token punctuation">[</span>threadIdx<span class="token punctuation">.</span>x<span class="token punctuation">]</span><span class="token punctuation">,</span> bins_shared<span class="token punctuation">[</span>threadIdx<span class="token punctuation">.</span>x<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="25"></td><td><pre></pre></td></tr><tr><td data-num="26"></td><td><pre><span class="token keyword">void</span> <span class="token function">compute</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="27"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="28"></td><td><pre>    <span class="token keyword">const</span> <span class="token keyword">int</span> block_size <span class="token operator">=</span> <span class="token number">256</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    histogram_kernel_v4_5<span class="token operator">&lt;&lt;</span><span class="token operator">&lt;</span>ARRSZ <span class="token operator">/</span> block_size <span class="token operator">/</span> <span class="token number">4</span> <span class="token operator">/</span> N<span class="token punctuation">,</span> block_size<span class="token operator">>></span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">unsigned</span> <span class="token keyword">int</span> <span class="token operator">*</span><span class="token punctuation">)</span>arr_gpu<span class="token punctuation">,</span> bin_gpu<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token function">assert</span><span class="token punctuation">(</span>cudaSuccess <span class="token operator">==</span> <span class="token function">cudaDeviceSynchronize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="31"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>优化共享内存 + 更多的循环展开，且临近：2ms</p>
 <p>原因：interleave 下每次循环取<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>×</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">4 \times 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span> 块数据。contiguous 下每次循环取<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>32</mn><mo>×</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">32\times 8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span></span></span></span> 块数据，会给软件不可见的 Cache 或显存带来压力。</p>
 <h3 id="debug-a-gpu-program"><a class="markdownIt-Anchor" href="#debug-a-gpu-program">#</a> Debug a GPU Program</h3>
-<p><img data-src="image/PKU-HPCGAME-2/1673687744697.png" alt="1673687744697"><br>
- 一个常见的调试 pattern：写一个 CPU kernel 和一个 GPU kernel，发现某个位置算错了，算出来是在 cuda block 1 thread 3 算错了，直接通过 cuda-gdb 查看这里为什么算错了。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-2/1673687744697.png" class="" width="1673687744697">
+<p>一个常见的调试 pattern：写一个 CPU kernel 和一个 GPU kernel，发现某个位置算错了，算出来是在 cuda block 1 thread 3 算错了，直接通过 cuda-gdb 查看这里为什么算错了。</p>
 
       <div class="tags">
           <a href="/tags/HPC/" rel="tag"><i class="ic i-tag"></i> HPC</a>
@@ -247,7 +247,7 @@ CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-01-14 17:37:56" itemprop="dateModified" datetime="2023-01-14T17:37:56+08:00">2023-01-14</time>
+    <time title="修改时间：2023-01-14 17:58:01" itemprop="dateModified" datetime="2023-01-14T17:58:01+08:00">2023-01-14</time>
   </span>
   <span id="curriculum/HPC/PKU-HPCGAME-2/" class="item leancloud_visitors" data-flag-title="PKU HPCGame 讲座笔记（2）- GPU编程（郝哲文）" title="阅读次数">
       <span class="icon">
@@ -306,7 +306,7 @@ CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个
     <div class="item left">
       
 
-  <a href="/curriculum/HPC/PKU-HPCGAME-1/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;johng-mit.cn&#x2F;wallpaper&#x2F;daniel-gregoire-D8NXYiz2uTQ-unsplash.jpg" title="PKU HPCGame 讲座笔记（1）- 概论（郭俊逸）">
+  <a href="/curriculum/HPC/PKU-HPCGAME-1/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;johng-mit.cn&#x2F;wallpaper&#x2F;birmingham-museums-trust-RRn7VvZCbas-unsplash.jpg" title="PKU HPCGame 讲座笔记（1）- 概论（郭俊逸）">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> PKU HPCGame</span>
   <h3>PKU HPCGame 讲座笔记（1）- 概论（郭俊逸）</h3>
@@ -316,7 +316,7 @@ CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个
     <div class="item right">
       
 
-  <a href="/curriculum/HPC/PKU-HPCGAME-3/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;johng-mit.cn&#x2F;wallpaper&#x2F;max-van-den-oetelaar-cAq3crYmgno-unsplash.jpg" title="PKU HPCGame 讲座笔记（3）- MPI简介（司嘉祺）">
+  <a href="/curriculum/HPC/PKU-HPCGAME-3/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;johng-mit.cn&#x2F;wallpaper&#x2F;kateryna-hliznitsova-cqKG2s6WP6s-unsplash.jpg" title="PKU HPCGame 讲座笔记（3）- MPI简介（司嘉祺）">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> PKU HPCGame</span>
   <h3>PKU HPCGame 讲座笔记（3）- MPI简介（司嘉祺）</h3>
@@ -456,14 +456,24 @@ CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="分类于 读书笔记">读书笔记</a>
+<a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="分类于 机器学习">机器学习</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/" title="分类于 Mathematics for Machine Learning">Mathematics for Machine Learning</a>
+<a href="/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/" title="分类于 Deep Learning in Computer Vision">Deep Learning in Computer Vision</a>
 </div>
 
-    <span><a href="/book-note/machine-learning/mml/MML-02/" title="Mathematics for Machine Learning | Chapter 2">Mathematics for Machine Learning | Chapter 2</a></span>
+    <span><a href="/curriculum/deep-learning-in-computer-vision/p2lecture5/" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">Part Ⅱ | Lecture 5 | Neural vision advanced applications</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E6%8A%80%E6%9C%AF/" title="分类于 技术">技术</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E6%8A%80%E6%9C%AF/%E6%9D%82%E9%A1%B9/" title="分类于 杂项">杂项</a>
+</div>
+
+    <span><a href="/technology/rdp/" title="使用RD Client + frp内网穿透实现iPad远程控制">使用RD Client + frp内网穿透实现iPad远程控制</a></span>
   </li>
 
       
@@ -489,7 +499,7 @@ CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个
 <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/" title="分类于 Mathematics for Machine Learning">Mathematics for Machine Learning</a>
 </div>
 
-    <span><a href="/book-note/machine-learning/mml/MML-01/" title="Mathematics for Machine Learning | Chapter 1">Mathematics for Machine Learning | Chapter 1</a></span>
+    <span><a href="/book-note/machine-learning/mml/MML-02/" title="Mathematics for Machine Learning | Chapter 2">Mathematics for Machine Learning | Chapter 2</a></span>
   </li>
 
       
@@ -508,18 +518,6 @@ CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E6%8A%80%E6%9C%AF/" title="分类于 技术">技术</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E6%8A%80%E6%9C%AF/%E6%9D%82%E9%A1%B9/" title="分类于 杂项">杂项</a>
-</div>
-
-    <span><a href="/technology/rdp/" title="使用RD Client + frp内网穿透实现iPad远程控制">使用RD Client + frp内网穿透实现iPad远程控制</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/%E8%AF%BE%E7%A8%8B/PKU-HPCGame/" title="分类于 PKU HPCGame">PKU HPCGame</a>
@@ -532,12 +530,14 @@ CUDA 提供层级化的接口用于操纵 GPU，每一个 kernel 都对应一个
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
+<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="分类于 读书笔记">读书笔记</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/" title="分类于 Deep Learning in Computer Vision">Deep Learning in Computer Vision</a>
+<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="分类于 机器学习">机器学习</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/" title="分类于 Mathematics for Machine Learning">Mathematics for Machine Learning</a>
 </div>
 
-    <span><a href="/curriculum/deep-learning-in-computer-vision/p2lecture5/" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">Part Ⅱ | Lecture 5 | Neural vision advanced applications</a></span>
+    <span><a href="/book-note/machine-learning/mml/MML-01/" title="Mathematics for Machine Learning | Chapter 1">Mathematics for Machine Learning | Chapter 1</a></span>
   </li>
 
   </ul>
