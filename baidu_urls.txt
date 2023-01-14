@@ -1,3 +1,6 @@
+https://johng-mit.github.io/curriculum/HPC/PKU-HPCGAME-3/
+https://johng-mit.github.io/curriculum/HPC/PKU-HPCGAME-2/
+https://johng-mit.github.io/curriculum/HPC/PKU-HPCGAME-1/
 https://johng-mit.github.io/technology/rdp/
 https://johng-mit.github.io/curriculum/deep-learning-in-computer-vision/p2lecture5/
 https://johng-mit.github.io/book-note/machine-learning/mml/MML-01/
