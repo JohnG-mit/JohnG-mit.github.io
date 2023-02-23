@@ -79,7 +79,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>38</span>
+    <span>1.7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -87,7 +87,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>1 分钟</span>
+    <span>2 分钟</span>
   </span>
 </div>
 
@@ -120,12 +120,12 @@ Feast = 身如蘆葦 = 人間似夢</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/marina-reich-Lh6G7kMdGr0-unsplash.jpg"></li>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/daniel-tafjord-60QEnTvCNDo-unsplash.jpg"></li>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/jinny-lee-Kl6wYBsFoAA-unsplash.jpg"></li>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/patrick-tomasso-0V3qHmSV1kM-unsplash.jpg"></li>
           <li class="item" data-background-image="https://johng-mit.cn/wallpaper/usgs-YVJHp4fQz9A-unsplash.jpg"></li>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/tamara-menzi-n-vnWQmmVoY-unsplash.jpg"></li>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/evie-s-_IpKsTK9gcE-unsplash.jpg"></li>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/denise-chan-pXmbsF70ulM-unsplash.jpg"></li>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/birmingham-museums-trust-SAQl58G-RYs-unsplash.jpg"></li>
-          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/jene-stephaniuk--MCrF6hnojU-unsplash.jpg"></li>
+          <li class="item" data-background-image="https://johng-mit.cn/wallpaper/europeana-5TK1F5VfdIk-unsplash.jpg"></li>
         </ul>
       </div>
     </header>
@@ -174,7 +174,30 @@ Feast = 身如蘆葦 = 人間似夢</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p>MPI (Message Passing Interface) 是一个消息传递接口。</p>
+    <h2 id="mpi简介"><a class="markdownIt-Anchor" href="#mpi简介">#</a> MPI 简介</h2>
+<p>MPI (Message Passing Interface) 是一个消息传递接口。目前超算中心一般选择 OpenMPI 及其衍生实现或 MVAPICH 及其衍生实现（太湖之光使用 MVAPICH 衍生）。因为 MPICH 不支持一些比较新式的硬件。以下内容将主要讨论 OpenMPI。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673859596069.png" class="" width="1673859596069">
+<p>在编译 OpenMPI 时，需要首先搞清楚服务器的硬件架构以及环境配置书写对应的编译指令。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673859607482.png" class="" width="1673859607482">
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673859799662.png" class="" width="1673859799662">
+<p>OpenMPI 的主要架构分为三层，OMPI 提供编程接口；ORTE 用于起进程；OPAL 和操作系统进行交互。每一层只能向下动态引用。</p>
+<h2 id="mpi编程"><a class="markdownIt-Anchor" href="#mpi编程">#</a> MPI 编程</h2>
+<h3 id="编程理念"><a class="markdownIt-Anchor" href="#编程理念">#</a> 编程理念</h3>
+<p>SPMD (Single Program, Multiple Data)。同一个程序会被拷贝多份，对应的代码指令是相同的，处理的数据是不一样的。<br>
+一个简单的例子：</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673860786008.png" class="" width="1673860786008">
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673860793320.png" class="" width="1673860793320">
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673861173887.png" class="" width="1673861173887">
+<h3 id="点对点point-to-point"><a class="markdownIt-Anchor" href="#点对点point-to-point">#</a> 点对点（Point-to-Point）</h3>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673861916529.png" class="" width="1673861916529">
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673861930858.png" class="" width="1673861930858">
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673861942205.png" class="" width="1673861942205">
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673861952949.png" class="" width="1673861952949">
+<h4 id="案例分析乒乓通信"><a class="markdownIt-Anchor" href="#案例分析乒乓通信">#</a> 案例分析：乒乓通信</h4>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;mpi.h></span></span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span><span class="token operator">*</span> argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token function">MPI_Init</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>argc<span class="token punctuation">,</span> argv<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">int</span> numP<span class="token punctuation">,</span> myId<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token function">MPI_Comm_size</span><span class="token punctuation">(</span>MPI_COMM_WORLD<span class="token punctuation">,</span> <span class="token operator">&amp;</span>numP<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token function">MPI_Comm_rank</span><span class="token punctuation">(</span>MPI_COMM_WORLD<span class="token punctuation">,</span> <span class="token operator">&amp;</span>myId<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>numP <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>myId<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>        <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>            <span class="token comment">// only process 0 put the error message</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"ERROR: the number of ping pong processes must be an even number\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            <span class="token function">MPI_Abort</span><span class="token punctuation">(</span>MPI_COMM_WORLD<span class="token punctuation">,</span> EXIT_FAILURE<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>        <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="21"></td><td><pre></pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">int</span> parter_id<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="23"></td><td><pre>    <span class="token keyword">int</span> odd <span class="token operator">=</span> myId <span class="token operator">&amp;</span> <span class="token number">1</span><span class="token punctuation">;</span>  <span class="token comment">// Is myId even or odd?</span></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>odd<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="26"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="27"></td><td><pre>        <span class="token comment">// If myId is odd:</span></pre></td></tr><tr><td data-num="28"></td><td><pre>        partner_id <span class="token operator">=</span> myId <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="29"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="30"></td><td><pre>    <span class="token keyword">else</span></pre></td></tr><tr><td data-num="31"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="32"></td><td><pre>        <span class="token comment">// If myId is even:</span></pre></td></tr><tr><td data-num="33"></td><td><pre>        partner_id <span class="token operator">=</span> myId <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="34"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="35"></td><td><pre></pre></td></tr><tr><td data-num="36"></td><td><pre>    <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="37"></td><td><pre></pre></td></tr><tr><td data-num="38"></td><td><pre>    <span class="token keyword">if</span> <span class="token punctuation">(</span>odd <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="39"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="40"></td><td><pre>        <span class="token comment">// If myId is even, first send then receive:</span></pre></td></tr><tr><td data-num="41"></td><td><pre>        a <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="42"></td><td><pre>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Process %d sends token %d to process %d\n"</span><span class="token punctuation">,</span> myId<span class="token punctuation">,</span> a<span class="token punctuation">,</span> partner_id<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="43"></td><td><pre>        <span class="token function">MPI_Send</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> MPI_INT<span class="token punctuation">,</span> partner_id<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> MPI_COMM_WORLD<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>        <span class="token function">MPI_Recv</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>b<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> MPI_INT<span class="token punctuation">,</span> partner_id<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> MPI_COMM_WORLD<span class="token punctuation">,</span> MPI_STATUS_IGNORE<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="46"></td><td><pre>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Process %d receives token %d from process %d\n"</span><span class="token punctuation">,</span> myId<span class="token punctuation">,</span> b<span class="token punctuation">,</span> partner_id<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="47"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="48"></td><td><pre>    <span class="token keyword">else</span></pre></td></tr><tr><td data-num="49"></td><td><pre>    <span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="50"></td><td><pre>        <span class="token comment">// If myId is odd, first receive then send:</span></pre></td></tr><tr><td data-num="51"></td><td><pre>        a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="52"></td><td><pre>        <span class="token function">MPI_Recv</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>b<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> MPI_INT<span class="token punctuation">,</span> partner_id<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> MPI_COMM_WORLD<span class="token punctuation">,</span> MPI_STATUS_IGNORE<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="53"></td><td><pre>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Process %d receives token %d from process %d\n"</span><span class="token punctuation">,</span> myId<span class="token punctuation">,</span> b<span class="token punctuation">,</span> partner_id<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="54"></td><td><pre>        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Process %d sends token %d to process %d\n"</span><span class="token punctuation">,</span> myId<span class="token punctuation">,</span> a<span class="token punctuation">,</span> partner_id<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="55"></td><td><pre>        <span class="token function">MPI_Send</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> MPI_INT<span class="token punctuation">,</span> partner_id<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> MPI_COMM_WORLD<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="56"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="57"></td><td><pre>    <span class="token function">MPI_Finalize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="58"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673863883265.png" class="" width="1673863883265">
+<p>如果将 send 打印语句放在 <code>MPI_Send</code>  后面，会出现乱序的结果（程序设定是偶数进程先发送再接受，奇数进程先接受再发送），但是结果消息中进程 2 在进程 3 发送前就接受到了，这是不符合函数执行顺序的。</p>
+<img data-src="/curriculum/HPC/PKU-HPCGAME-3/1673864105996.png" class="" width="1673864105996">
+<h3 id="非阻塞通信"><a class="markdownIt-Anchor" href="#非阻塞通信">#</a> 非阻塞通信</h3>
 
       <div class="tags">
           <a href="/tags/HPC/" rel="tag"><i class="ic i-tag"></i> HPC</a>
@@ -190,7 +213,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-01-14 17:38:05" itemprop="dateModified" datetime="2023-01-14T17:38:05+08:00">2023-01-14</time>
+    <time title="修改时间：2023-01-16 18:15:46" itemprop="dateModified" datetime="2023-01-16T18:15:46+08:00">2023-01-16</time>
   </span>
   <span id="curriculum/HPC/PKU-HPCGAME-3/" class="item leancloud_visitors" data-flag-title="PKU HPCGame 讲座笔记（3）- MPI简介（司嘉祺）" title="阅读次数">
       <span class="icon">
@@ -249,7 +272,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
     <div class="item left">
       
 
-  <a href="/curriculum/HPC/PKU-HPCGAME-2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;johng-mit.cn&#x2F;wallpaper&#x2F;pawel-czerwinski-OALPS7O3jXs-unsplash.jpg" title="PKU HPCGame 讲座笔记（2）- GPU编程（郝哲文）">
+  <a href="/curriculum/HPC/PKU-HPCGAME-2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;johng-mit.cn&#x2F;wallpaper&#x2F;nasa-fDSqEWLRNFE-unsplash.jpg" title="PKU HPCGame 讲座笔记（2）- GPU编程（郝哲文）">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> PKU HPCGame</span>
   <h3>PKU HPCGame 讲座笔记（2）- GPU编程（郝哲文）</h3>
@@ -273,6 +296,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mpi%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> MPI 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mpi%E7%BC%96%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text"> MPI 编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E7%90%86%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text"> 编程理念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%AF%B9%E7%82%B9point-to-point"><span class="toc-number">2.2.</span> <span class="toc-text"> 点对点（Point-to-Point）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90%E4%B9%92%E4%B9%93%E9%80%9A%E4%BF%A1"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 案例分析：乒乓通信</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9E%E9%80%9A%E4%BF%A1"><span class="toc-number">2.3.</span> <span class="toc-text"> 非阻塞通信</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
@@ -388,32 +412,6 @@ Feast = 身如蘆葦 = 人間似夢</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E8%AF%BE%E7%A8%8B/PKU-HPCGame/" title="分类于 PKU HPCGame">PKU HPCGame</a>
-</div>
-
-    <span><a href="/curriculum/HPC/PKU-HPCGAME-1/" title="PKU HPCGame 讲座笔记（1）- 概论（郭俊逸）">PKU HPCGame 讲座笔记（1）- 概论（郭俊逸）</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="分类于 读书笔记">读书笔记</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="分类于 机器学习">机器学习</a>
-<i class="ic i-angle-right"></i>
-<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/" title="分类于 Mathematics for Machine Learning">Mathematics for Machine Learning</a>
-</div>
-
-    <span><a href="/book-note/machine-learning/mml/MML-02/" title="Mathematics for Machine Learning | Chapter 2">Mathematics for Machine Learning | Chapter 2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/%E8%BF%B7%E6%83%98%E9%9B%86/" title="分类于 迷惘集">迷惘集</a>
 <i class="ic i-angle-right"></i>
 <a href="/categories/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5/" title="分类于 近况">近况</a>
@@ -431,7 +429,7 @@ Feast = 身如蘆葦 = 人間似夢</title>
 <a href="/categories/%E8%AF%BE%E7%A8%8B/PKU-HPCGame/" title="分类于 PKU HPCGame">PKU HPCGame</a>
 </div>
 
-    <span><a href="/curriculum/HPC/PKU-HPCGAME-3/" title="PKU HPCGame 讲座笔记（3）- MPI简介（司嘉祺）">PKU HPCGame 讲座笔记（3）- MPI简介（司嘉祺）</a></span>
+    <span><a href="/curriculum/HPC/PKU-HPCGAME-1/" title="PKU HPCGame 讲座笔记（1）- 概论（郭俊逸）">PKU HPCGame 讲座笔记（1）- 概论（郭俊逸）</a></span>
   </li>
 
       
@@ -452,10 +450,10 @@ Feast = 身如蘆葦 = 人間似夢</title>
 <div class="breadcrumb">
 <a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
 <i class="ic i-angle-right"></i>
-<a href="/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/" title="分类于 Deep Learning in Computer Vision">Deep Learning in Computer Vision</a>
+<a href="/categories/%E8%AF%BE%E7%A8%8B/PKU-HPCGame/" title="分类于 PKU HPCGame">PKU HPCGame</a>
 </div>
 
-    <span><a href="/curriculum/deep-learning-in-computer-vision/p2lecture5/" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">Part Ⅱ | Lecture 5 | Neural vision advanced applications</a></span>
+    <span><a href="/curriculum/HPC/PKU-HPCGAME-3/" title="PKU HPCGame 讲座笔记（3）- MPI简介（司嘉祺）">PKU HPCGame 讲座笔记（3）- MPI简介（司嘉祺）</a></span>
   </li>
 
       
@@ -470,6 +468,32 @@ Feast = 身如蘆葦 = 人間似夢</title>
 </div>
 
     <span><a href="/book-note/machine-learning/mml/MML-01/" title="Mathematics for Machine Learning | Chapter 1">Mathematics for Machine Learning | Chapter 1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="分类于 读书笔记">读书笔记</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" title="分类于 机器学习">机器学习</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/" title="分类于 Mathematics for Machine Learning">Mathematics for Machine Learning</a>
+</div>
+
+    <span><a href="/book-note/machine-learning/mml/MML-02/" title="Mathematics for Machine Learning | Chapter 2">Mathematics for Machine Learning | Chapter 2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E8%AF%BE%E7%A8%8B/" title="分类于 课程">课程</a>
+<i class="ic i-angle-right"></i>
+<a href="/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/" title="分类于 Deep Learning in Computer Vision">Deep Learning in Computer Vision</a>
+</div>
+
+    <span><a href="/curriculum/deep-learning-in-computer-vision/p2lecture5/" title="Part Ⅱ | Lecture 5 | Neural vision advanced applications">Part Ⅱ | Lecture 5 | Neural vision advanced applications</a></span>
   </li>
 
   </ul>
@@ -499,13 +523,13 @@ Feast = 身如蘆葦 = 人間似夢</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">48k 字</span>
+    <span title="站点总字数">49k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">43 分钟</span>
+    <span title="站点阅读时长">45 分钟</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
