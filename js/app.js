@@ -1,4 +1,4 @@
-var CONFIG = {"version":"0.2.5","hostname":"https://johng-mit.github.io","root":"/","statics":"/","favicon":{"normal":"images/favicon.ico","hidden":"images/failure.ico"},"darkmode":false,"auto_scroll":false,"js":{"valine":"gh/amehime/MiniValine@4.2.2-beta10/dist/MiniValine.min.js","chart":"npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js","copy_tex":"npm/katex@0.12.0/dist/contrib/copy-tex.min.js","fancybox":"combine/npm/jquery@3.5.1/dist/jquery.min.js,npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js,npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"},"css":{"valine":"css/comment.css","katex":"npm/katex@0.12.0/dist/katex.min.css","mermaid":"css/mermaid.css","fancybox":"combine/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"},"loader":{"start":false,"switch":false},"search":null,"valine":{"appId":"sJBhlrQhFPDA4IGgYT6zBiLD-gzGzoHsz","appKey":"6cnHhaogxedyILiamuYO5Ruf","placeholder":"ヽ(○´∀`)ﾉ♪","avatar":"mp","pageSize":10,"lang":"zh-CN","visitor":true,"NoRecordIP":false,"serverURLs":"https://sjbhlrqh.lc-cn-n1-shared.com","powerMode":true,"tagMeta":{"visitor":"新朋友","master":"主人","friend":"小伙伴","investor":"金主粑粑"},"tagColor":{"master":"var(--color-orange)","friend":"var(--color-aqua)","investor":"var(--color-pink)"},"tagMember":{"master":null,"friend":null,"investor":null}},"quicklink":{"timeout":3000,"priority":true},"audio":[{"title":"美少女万华镜","list":["https://music.163.com/#/playlist?id=2536281167","https://music.163.com/#/playlist?id=832651250","https://music.163.com/#/playlist?id=568085299","https://music.163.com/#/playlist?id=5208616184","https://music.163.com/#/playlist?id=119061785","https://music.163.com/#/playlist?id=871981253","https://music.163.com/#/playlist?id=5138227592"]},{"title":"神秘海域","list":["https://music.163.com/#/playlist?id=6949357584"]}]};const getRndInteger = function (min, max) {
+var CONFIG = {"version":"0.2.5","hostname":"https://johng-mit.github.io","root":"/","statics":"/","favicon":{"normal":"images/favicon.ico","hidden":"images/failure.ico"},"darkmode":false,"auto_scroll":false,"js":{"valine":"gh/amehime/MiniValine@4.2.2-beta10/dist/MiniValine.min.js","chart":"npm/frappe-charts@1.5.0/dist/frappe-charts.min.iife.min.js","copy_tex":"npm/katex@0.12.0/dist/contrib/copy-tex.min.js","fancybox":"combine/npm/jquery@3.5.1/dist/jquery.min.js,npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js,npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"},"css":{"valine":"css/comment.css","katex":"npm/katex@0.12.0/dist/katex.min.css","mermaid":"css/mermaid.css","fancybox":"combine/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css,npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"},"loader":{"start":false,"switch":false},"search":null,"valine":{"appId":"sJBhlrQhFPDA4IGgYT6zBiLD-gzGzoHsz","appKey":"6cnHhaogxedyILiamuYO5Ruf","placeholder":"ヽ(○´∀`)ﾉ♪","avatar":"mp","pageSize":10,"lang":"zh-CN","visitor":true,"NoRecordIP":false,"serverURLs":"https://sjbhlrqh.lc-cn-n1-shared.com","powerMode":true,"tagMeta":{"visitor":"新朋友","master":"主人","friend":"小伙伴","investor":"金主粑粑"},"tagColor":{"master":"var(--color-orange)","friend":"var(--color-aqua)","investor":"var(--color-pink)"},"tagMember":{"master":null,"friend":null,"investor":null}},"quicklink":{"timeout":3000,"priority":true},"audio":[{"title":"神秘海域","list":["https://music.163.com/#/playlist?id=6949357584"]}]};const getRndInteger = function (min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
@@ -2063,6 +2063,331 @@ const loadComments = function () {
   }
 }
 
+const localSearch = function(pjax) {
+  // 参考 hexo next 主题的配置方法
+  // 参考 https://qiuyiwu.github.io/2019/01/25/Hexo-LocalSearch/ 博文
+  console.log(CONFIG.search);
+  if(CONFIG.search === null)
+    return
+
+  if(!siteSearch) {
+    siteSearch = BODY.createChild('div', {
+      id: 'search',
+      innerHTML: `<div class="inner">
+                    <div class="header">
+                      <span class="icon">
+                        <i class="ic i-search">
+                        </i>
+                      </span>
+                      <div class="search-input-container">
+                      <input  class="search-input"
+                              autocomplete="off"
+                              placeholder="${LOCAL.search.placeholder}" 
+                              spellcheck="false"
+                              type="text" 
+                              id="local-search-input">
+                      </div>
+                        <span class="close-btn">
+                          <i class="ic i-times-circle">
+                          </i>
+                        </span>
+                      </div>
+                      <div class="results">
+                        <div class="inner">
+                        <div id="search-stats">
+                        </div>
+                        <div id="search-hits">
+                        </div>
+                        <div id="search-pagination">
+                        </div>
+                      </div>
+                    </div>
+                  </div>`
+    });
+  }
+  
+  let isFetched = false;
+  let datas;
+  let isXml = true;
+
+  // search DB path
+  let searchPath = CONFIG.search.path;
+  console.log(searchPath);
+  if (searchPath.length == 0) {
+    searchPath = 'search.xml';
+  } else if (searchPath.endsWith('json')) {
+    isXml = false;
+  }
+
+  const input = $('.search-input'); // document.querySelector('.search-input');
+  // console.log(input);
+  const resultContent = document.getElementById('search-result');
+  // console.log(resultContent);
+
+  const getIndexByWord = (word, text, caseSensitive) => {
+    if (CONFIG.search.unescape) {
+      let div = document.createElement('div');
+      div.innerText = word;
+      word = div.innerHTML;
+    }
+    let wordLen = word.length;
+    if (wordLen === 0) {
+      return [];
+    }
+    let startPosition = 0;
+    let position = [];
+    let index = [];
+    if (!caseSensitive) {
+      text = text.toLowerCase();
+      word = word.toLowerCase();
+    }
+
+    while ((position = text.indexOf(word, startPosition)) > -1) {
+      index.push({position, word});
+      startPosition = position + wordLen;
+    }
+    return index;
+  };
+
+  // Merge hits into slices
+  const mergeIntoSlice = (start, end, index, searchText) => {
+    let item = index[index.length - 1];
+    let {position, word} = item;
+    let hits = [];
+    let searchTextCountInSlice = 0;
+    while (position + word.length <= end && index.length !== 0) {
+      if (word === searchText) {
+        searchTextCountInSlice++;
+      }
+      hits.push({
+        position,
+        length: word.length
+      });
+
+      let wordEnd = position + word.length;
+
+      // Move to next position of hit
+      index.pop();
+      while (index.length !== 0) {
+        item = index[index.length - 1];
+        position = item.position;
+        word = item.word;
+        if (wordEnd > position) {
+          index.pop();
+        } else {
+          break;
+        }
+      }
+    }
+    return {
+      hits,
+      start,
+      end,
+      searchTextCount: searchTextCountInSlice
+    };
+  }
+
+  // Highlight title and content
+  const highlightKeyword = (text, slice) => {
+    let result = '';
+    let prevEnd = slice.start;
+    slice.hits.forEach(hit => {
+      result += text.substring(prevEnd, hit.position);
+      let end = hit.position + hit.length;
+      result += `<mark">${text.substring(hit.position, end)}</mark>`;
+      prevEnd = end;
+    });
+    result += text.substring(prevEnd, slice.end);
+    return result;
+  };
+
+  const inputEventFunction = () => {
+    if (!isFetched) {
+      return;
+    }
+
+    let searchText = input.value.trim().toLowerCase();
+    let keywords = searchText.split(/[-\s]+/);
+    if (keywords.length > 1) {
+      keywords.push(searchText);
+    }
+    let resultItems = [];
+    if (searchText.length > 0) {
+      // Perform local searching
+      datas.forEach(({title, content, url}) => {
+        let titleInLowerCase = title.toLowerCase();
+        let contentInLowerCase = content.toLowerCase();
+        let indexOfTitle = [];
+        let indexOfContent = [];
+        let searchTextCount = 0;
+        keywords.forEach(keyword => {
+          indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+          indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+        });
+
+        // Show search results
+        if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+          let hitCount = indexOfTitle.length + indexOfContent.length;
+          // Sort index by position of keyword
+          [indexOfTitle, indexOfContent].forEach(index => {
+            index.sort((itemLeft, itemRight) => {
+              if (itemRight.position !== itemLeft.position) {
+                return itemRight.position - itemLeft.position;
+              }
+              return itemLeft.word.length - item.word.length;
+            });
+          });
+
+          let slicesOfContent = [];
+          while (indexOfContent.length !== 0) {
+            let item = indexOfContent[indexOfContent.length - 1];
+            let {position, word} = item;
+            // Cut out 100 characters
+            let start = position - 20;
+            let end = position + 80;
+            if (start < 0) {
+              start = 0;
+            }
+            if (end < position + word.length) {
+              end = position + word.length;
+            }
+            if (end > content.length) {
+              end = content.length;
+            }
+            let tmp = mergeIntoSlice(start, end, indexOfContent, searchText);
+            searchTextCount += tmp.searchTextCountInSlice;
+            slicesOfContent.push(tmp);
+          }
+
+          // Sort slices in content by search text's count and hits' count
+          slicesOfContent.sort((sliceLeft, sliceRight) => {
+            if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+              return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+            } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+              return sliceRight.hits.length - sliceLeft.hits.length;
+            }
+            return sliceLeft.start - sliceRight.start;
+          });
+
+          // Select top N slices in content
+          let upperBound = parseInt(CONFIT.localsearch.top_n_per_article, 10);
+          if (upperBound >= 0) {
+            slicesOfContent = slicesOfContent.slice(0, upperBound);
+          }
+
+          let resultItem = '';
+
+          if (slicesOfTitle.length !== 0) {
+            resultItem += `<li><a href="${url}">${highlightKeyword(title, slicesOfTitle[0])}</a>`;
+          } else {
+            resultItem += `<li><a href="${url}">${title}</a>`;
+          }
+
+          slicesOfContent.forEach(slice => {
+            resultItem += `<a href="${url}"><p>${highlightKeyword(content, slice)}...</p></a>`;
+          });
+
+          resultItem += '</li>';
+          resultItems.push({
+            item: resultItem,
+            id  : resultItems.length,
+            hitCount,
+            searchTextCount
+          });
+        }
+      });
+    }
+
+    if (keywords.length === 1 && keywords[0] === '') {
+      resultContent.innerHTML = '<div id="no-result"><i></i></div>';
+    } else if (resultItems.length === 0) {
+      resultContent.innerHTML = '<div id="no-result"><i></i></div>';
+    } else {
+      resultItems.sort((resultLeft, resultRight) => {
+        if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+          return resultRight.searchTextCount - resultLeft.searchTextCount;
+        } else if (resultLeft.hitCount !== resultRight.hitCount) {
+          return resultRight.hitCount - resultLeft.hitCount;
+        }
+        return resultRight.id - resultLeft.id;
+      });
+      resultContent.innerHTML = `<ul>${resultItems.map(result => result.item).join('')}</ul>`;
+      window.pjax && window.pjax.refresh(resultContent);
+    }
+  }
+
+  const fetchData = () => {
+    fetch(CONFIG.root + searchPath)
+      .then(response => response.text())
+      .then(res => {
+        // Get the contents from search data
+        isfetched = true;
+        datas = isXml ? [...new DOMParser().parseFromString(res, 'text/xml').querySelectorAll('entry')].map(element => {
+          return {
+            title  : element.querySelector('title').textContent,
+            content: element.querySelector('content').textContent,
+            url    : element.querySelector('url').textContent
+          };
+        }) : JSON.parse(res);
+        // Only match articles with not empty titles
+        datas = datas.filter(data => data.title).map(data => {
+          data.title = data.title.trim();
+          data.content = data.content ? data.content.trim().replace(/<[^>]+>/g, '') : '';
+          data.url = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+          return data;
+        });
+        // Remove loading animation
+        document.getElementById('no-result').innerHTML = '<i></i>';
+        inputEventFunction();
+      });
+  };
+
+  if (CONFIG.search.preload) {
+    fetchData();
+  }
+
+  // Handle and trigger popup window
+  document.querySelectorAll('.popup-trigger').forEach(element => {
+    element.addEventListener('click', () => {
+      document.body.style.overflow = 'hidden';
+      document.querySelector('.search-pop-overlay').classList.add('search-active');
+      input.focus();
+      if (!isfetched) fetchData();
+    });
+  });
+
+  // Handle and trigger popup window
+  $.each('.search', function(element) {
+    element.addEventListener('click', function() {
+      document.body.style.overflow = 'hidden';
+      transition(siteSearch, 'shrinkIn', function() {
+          $('.search-input').focus();
+        }) // transition.shrinkIn
+    });
+  });
+
+  // // Monitor main search box
+  const onPopupClose = function() {
+    document.body.style.overflow = '';
+    transition(siteSearch, 0); // "transition.shrinkOut"
+  };
+
+  siteSearch.addEventListener('click', function(event) {
+    if (event.target === siteSearch) {
+      onPopupClose();
+    }
+  });
+  
+  $('.close-btn').addEventListener('click', onPopupClose);
+  window.addEventListener('pjax:success', onPopupClose);
+  window.addEventListener('keyup', function(event) {
+    if (event.key === 'Escape') {
+      onPopupClose();
+    }
+  });
+
+};
+
 const algoliaSearch = function(pjax) {
   if(CONFIG.search === null)
     return
@@ -2124,7 +2449,12 @@ const algoliaSearch = function(pjax) {
       templates: {
         item: function(data) {
           var cats = data.categories ? '<span>'+data.categories.join('<i class="ic i-angle-right"></i>')+'</span>' : '';
-          return '<a href="' + CONFIG.root + data.path +'">'+cats+data._highlightResult.title.value+'</a>';
+          // return '<a href="' + CONFIG.root + data.path +'">'+cats+data._highlightResult.title.value+'</a>';
+          return '<a href="' + CONFIG.root + data.path +'">' + cats + 
+          '<b>' + data._highlightResult.title.value + '</b><br>' + 
+          data._snippetResult.contentStrip.value + '<br>( 匹配字词 : ' + 
+          data._highlightResult.contentStrip.matchedWords + ' ) | ( 匹配等级 : ' + 
+          data._highlightResult.contentStrip.matchLevel + ' )' + '</a>';
         },
         empty: function(data) {
           return '<div id="hits-empty">'+
@@ -2189,6 +2519,7 @@ const algoliaSearch = function(pjax) {
     }
   });
 }
+
 const domInit = function() {
   $.each('.overview .menu > .item', function(el) {
     siteNav.child('.menu').appendChild(el.cloneNode(true));
@@ -2243,6 +2574,7 @@ const siteRefresh = function (reload) {
   LOCAL_URL = window.location.href
 
   vendorCss('katex');
+  
   vendorJs('copy_tex');
   vendorCss('mermaid');
   vendorJs('chart');
@@ -2313,7 +2645,8 @@ const siteInit = function () {
   visibilityListener()
   themeColorListener()
 
-  algoliaSearch(pjax)
+  // algoliaSearch(pjax)
+  localSearch(pjax)
 
   window.addEventListener('scroll', scrollHandle)
 
