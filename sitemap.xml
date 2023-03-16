@@ -4,7 +4,7 @@
   <url>
     <loc>https://johng-mit.github.io/math/probability-and-statistics/parameter-estimation/</loc>
     
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -130,7 +130,7 @@
 
   <url>
     <loc>https://johng-mit.github.io/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -138,56 +138,56 @@
   
   <url>
     <loc>https://johng-mit.github.io/tags/frp/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://johng-mit.github.io/tags/RD-Client/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://johng-mit.github.io/tags/HPC/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/tags/Machine-Learning/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/tags/Mathematics/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/tags/Deep-Learning/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/tags/Computer-Vision/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://johng-mit.github.io/tags/Probability-and-Statistics/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/tags/Mathematics/</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/tags/Machine-Learning/</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/tags/Deep-Learning/</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/tags/Computer-Vision/</loc>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -196,84 +196,84 @@
   
   <url>
     <loc>https://johng-mit.github.io/categories/%E8%BF%B7%E6%83%98%E9%9B%86/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://johng-mit.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://johng-mit.github.io/categories/%E8%AF%BE%E7%A8%8B/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/categories/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/categories/%E6%8A%80%E6%9C%AF/%E6%9D%82%E9%A1%B9/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/categories/%E8%AF%BE%E7%A8%8B/PKU-HPCGame/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/</loc>
-    <lastmod>2023-03-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://johng-mit.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://johng-mit.github.io/categories/%E6%95%B0%E5%AD%A6/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/categories/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5/</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/categories/%E6%8A%80%E6%9C%AF/%E6%9D%82%E9%A1%B9/</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/categories/%E8%AF%BE%E7%A8%8B/PKU-HPCGame/</loc>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://johng-mit.github.io/categories/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A1/</loc>
-    <lastmod>2023-03-15</lastmod>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/categories/%E8%AF%BE%E7%A8%8B/Deep-Learning-in-Computer-Vision/</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-03-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://johng-mit.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Mathematics-for-Machine-Learning/</loc>
+    <lastmod>2023-03-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
