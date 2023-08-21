@@ -28,8 +28,8 @@
             <link>https://www.johng-mit.cn/math/probability-and-statistics/parameter-estimation/</link>
             <category term="数学" scheme="https://www.johng-mit.cn/categories/%E6%95%B0%E5%AD%A6/" />
             <category term="概率与统计" scheme="https://www.johng-mit.cn/categories/%E6%95%B0%E5%AD%A6/%E6%A6%82%E7%8E%87%E4%B8%8E%E7%BB%9F%E8%AE%A1/" />
-            <category term="Mathematics" scheme="https://www.johng-mit.cn/tags/Mathematics/" />
             <category term="Probability and Statistics" scheme="https://www.johng-mit.cn/tags/Probability-and-Statistics/" />
+            <category term="Mathematics" scheme="https://www.johng-mit.cn/tags/Mathematics/" />
             <pubDate>Wed, 15 Mar 2023 20:51:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;点估计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#点估计&#34;&gt;#&lt;/a&gt; 点估计&lt;/h2&gt;
 &lt;p&gt;设总体 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;X&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07847em;&#34;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 的分布函数形式已知，但它的一个或多个参数未知，借助于总体 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;X&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.68333em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.07847em;&#34;&gt;X&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 的一个样本来估计总体未知参数的值的问题称为参数的点估计问题。&lt;/p&gt;
@@ -631,8 +631,8 @@ The encoder reduces the dimensionality of our input and makes it difficult for t
             <link>https://www.johng-mit.cn/book-note/mml/MML-01/</link>
             <category term="读书笔记" scheme="https://www.johng-mit.cn/categories/book-note/" />
             <category term="Mathematics for Machine Learning" scheme="https://www.johng-mit.cn/categories/book-note/Mathematics-for-Machine-Learning/" />
-            <category term="Machine Learning" scheme="https://www.johng-mit.cn/tags/Machine-Learning/" />
             <category term="Mathematics" scheme="https://www.johng-mit.cn/tags/Mathematics/" />
+            <category term="Machine Learning" scheme="https://www.johng-mit.cn/tags/Machine-Learning/" />
             <pubDate>Thu, 11 Aug 2022 18:38:25 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;some-useful-sites-for-assisting-learning&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#some-useful-sites-for-assisting-learning&#34;&gt;#&lt;/a&gt; Some useful sites for assisting learning&lt;/h2&gt;
 &lt;ul&gt;
@@ -669,8 +669,8 @@ The encoder reduces the dimensionality of our input and makes it difficult for t
             <link>https://www.johng-mit.cn/book-note/mml/MML-02/</link>
             <category term="读书笔记" scheme="https://www.johng-mit.cn/categories/book-note/" />
             <category term="Mathematics for Machine Learning" scheme="https://www.johng-mit.cn/categories/book-note/Mathematics-for-Machine-Learning/" />
-            <category term="Machine Learning" scheme="https://www.johng-mit.cn/tags/Machine-Learning/" />
             <category term="Mathematics" scheme="https://www.johng-mit.cn/tags/Mathematics/" />
+            <category term="Machine Learning" scheme="https://www.johng-mit.cn/tags/Machine-Learning/" />
             <pubDate>Thu, 11 Aug 2022 18:38:25 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;definition-of-vector&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#definition-of-vector&#34;&gt;#&lt;/a&gt; Definition of Vector&lt;/h2&gt;
 &lt;p&gt;Vectors are special objects that can be added together and multiplied by scalars to produce another object of the same kind. From an abstract mathematical viewpoint, any object that satisfies these two properties can be considered a vector.&lt;/p&gt;
