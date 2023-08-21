@@ -1,9 +1,10 @@
+https://www.johng-mit.cn/deep-learning/batchnorm-and-layernorm/
 https://www.johng-mit.cn/math/probability-and-statistics/parameter-estimation/
 https://www.johng-mit.cn/curriculum/HPC/PKU-HPCGAME-3/
 https://www.johng-mit.cn/curriculum/HPC/PKU-HPCGAME-2/
 https://www.johng-mit.cn/curriculum/HPC/PKU-HPCGAME-1/
 https://www.johng-mit.cn/technology/rdp/
 https://www.johng-mit.cn/curriculum/deep-learning-in-computer-vision/p2lecture5/
-https://www.johng-mit.cn/book-note/machine-learning/mml/MML-01/
-https://www.johng-mit.cn/book-note/machine-learning/mml/MML-02/
-https://www.johng-mit.cn/%E8%BF%B7%E6%83%98%E9%9B%86/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5/
+https://www.johng-mit.cn/book-note/mml/MML-01/
+https://www.johng-mit.cn/book-note/mml/MML-02/
+https://www.johng-mit.cn/confusion/%E8%BF%91%E5%86%B5-2022%E5%B9%B4%E6%98%A5/
