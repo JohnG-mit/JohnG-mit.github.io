@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>Batchnorm 和 Layernorm</title>
-      <link href="/deep-learning/batchnorm-and-layernorm/"/>
-      <url>/deep-learning/batchnorm-and-layernorm/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 深度学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Normalization </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>参数估计与假设检验</title>
       <link href="/math/probability-and-statistics/parameter-estimation/"/>
       <url>/math/probability-and-statistics/parameter-estimation/</url>

@@ -1,4 +1,3 @@
-https://www.johng-mit.cn/deep-learning/batchnorm-and-layernorm/
 https://www.johng-mit.cn/math/probability-and-statistics/parameter-estimation/
 https://www.johng-mit.cn/curriculum/HPC/PKU-HPCGAME-3/
 https://www.johng-mit.cn/curriculum/HPC/PKU-HPCGAME-2/

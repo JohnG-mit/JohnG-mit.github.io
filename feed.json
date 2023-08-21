@@ -7,17 +7,6 @@
     "home_page_url": "https://www.johng-mit.cn",
     "items": [
         {
-            "id": "https://www.johng-mit.cn/deep-learning/batchnorm-and-layernorm/",
-            "url": "https://www.johng-mit.cn/deep-learning/batchnorm-and-layernorm/",
-            "title": "Batchnorm 和 Layernorm",
-            "date_published": "2023-08-03T12:36:00.000Z",
-            "content_html": "",
-            "tags": [
-                "深度学习",
-                "Normalization"
-            ]
-        },
-        {
             "id": "https://www.johng-mit.cn/math/probability-and-statistics/parameter-estimation/",
             "url": "https://www.johng-mit.cn/math/probability-and-statistics/parameter-estimation/",
             "title": "参数估计与假设检验",
